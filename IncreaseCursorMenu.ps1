@@ -59,7 +59,7 @@ Add-Type @"
         private const int WM_LBUTTONDOWN = 0x0201;
         private static LowLevelMouseProc _proc = HookCallback;
         private static IntPtr _hookID = IntPtr.Zero;
-        private static uint cursorSize = 64; // Taille de curseur initiale
+        private static uint cursorSize = 32; // Taille de curseur initiale
         
         public delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         
