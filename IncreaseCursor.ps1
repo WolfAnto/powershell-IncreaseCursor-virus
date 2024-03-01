@@ -8,7 +8,7 @@ Add-Type @"
         private const int WM_LBUTTONDOWN = 0x0201;
         private static LowLevelMouseProc _proc = HookCallback;
         private static IntPtr _hookID = IntPtr.Zero;
-        private static uint cursorSize = 64; // Taille de curseur initiale
+        private static uint cursorSize = 32; // Taille de curseur initiale
         
         public delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         
@@ -16,7 +16,7 @@ Add-Type @"
         {
             _hookID = SetHook(_proc);
             //Console.WriteLine("Hook Started. Press Ctrl + C to exit.");
-            System.Threading.Thread.CurrentThread.Join(); // Continue d'exécuter indéfiniment
+            System.Threading.Thread.CurrentThread.Join(); // Continue d'exÃ©cuter indÃ©finiment
         }
         
         private static IntPtr SetHook(LowLevelMouseProc proc)
@@ -33,7 +33,7 @@ Add-Type @"
             if (nCode >= 0 && wParam == (IntPtr)WM_LBUTTONDOWN)
             {
                 //Console.WriteLine("Left button clicked!");
-                // Ajoutez ici le code pour l'action spécifique que vous souhaitez effectuer
+                // Ajoutez ici le code pour l'action spÃ©cifique que vous souhaitez effectuer
                 IncreaseCursorSize();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
@@ -46,7 +46,7 @@ Add-Type @"
             if (!result) {
                 //Console.WriteLine("Failed to update cursor size.");
             }
-            cursorSize += 5; // Augmente la taille du curseur de 5 à chaque clic
+            cursorSize += 5; // Augmente la taille du curseur de 5 Ã  chaque clic
         }
         
         [DllImport("user32.dll", SetLastError = true)]
