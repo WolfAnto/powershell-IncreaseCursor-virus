@@ -1,0 +1,1 @@
+powershell.exe -windowstyle hidden -executionpolicy bypass -file C:\Users\Public\Documents\IncreaseCursor.ps1
